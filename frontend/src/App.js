@@ -1,29 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef, Component } from 'react';
+import { StyleSheet, Text, View, Alert, SafeAreaView } from 'react-native';
 import RelationsGraph from './utilities/RelationsGraph'
+import Canvas from 'react-native-canvas'
 
 export default function App() {
+  const ref = useRef(null);
+
   useEffect(() => {
-    let gra = new RelationsGraph(3)
-    gra.print()
-    gra.addPerson()
-    gra.print()
-  },[])
+    if (ref.current) {
+      const ctx = ref.current.getContext('2d');
+
+      if (ctx) {
+        Alert.alert('Canvas is ready');
+      }
+    }
+  }, [ref]);
   
   return (
+    
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+        <Text style={styles.headerText}> Circle Shape </Text>
+        <View style={styles.CircleShape} />
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#e5e5e5",
   },
+  headerText: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10,
+    fontWeight: "bold"
+  }, 
+  CircleShape: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
+    backgroundColor: '#FF9800',
+  },
+
 });

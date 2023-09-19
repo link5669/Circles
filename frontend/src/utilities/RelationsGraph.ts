@@ -12,7 +12,7 @@ class RelationsGraph {
     }
   }
 
-  addPerson() {
+  public addPerson() {
     this.numVertices++
     this.adjMatrix.push(new Array(this.numVertices).fill(0))
     for (let i = 0; i < this.numVertices; i++) {
@@ -33,13 +33,17 @@ class RelationsGraph {
   }
 
   print() {
-    let output = ""
     for (let i = 0; i < this.numVertices; i++) {
+      let output = ""
       for (let j = 0; j < this.numVertices; j++) {
         output += this.adjMatrix[i][j]
       }
       console.log(output)
     }
+  }
+  
+  getAllPeople() {
+    return
   }
 }
 
