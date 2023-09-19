@@ -1,28 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef, Component } from 'react';
 import { StyleSheet, Text, View, Alert, SafeAreaView } from 'react-native';
-import RelationsGraph from './utilities/RelationsGraph'
+import RelationsGraph from './components/RelationsGraph'
 import Canvas from 'react-native-canvas'
+import Singleton from './utilities/Singleton';
 
 export default function App() {
-  const ref = useRef(null);
-
+  const []
   useEffect(() => {
-    if (ref.current) {
-      const ctx = ref.current.getContext('2d');
-
-      if (ctx) {
-        Alert.alert('Canvas is ready');
-      }
-    }
-  }, [ref]);
+    Singleton.getGraph().addPerson("hello", 1)
+  })
   
   return (
-    
-    <View style={styles.container}>
-        <Text style={styles.headerText}> Circle Shape </Text>
-        <View style={styles.CircleShape} />
-      </View>
+    <RelationsGraph/>
   );
 }
 

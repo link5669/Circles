@@ -2,14 +2,14 @@ import PeopleInfo from "./PeopleInfo";
 import RelationsGraph from "./RelationsGraph";
 
 class Singleton {
-    private static graph: RelationsGraph
-    private static list: PeopleInfo
+    private static graph: RelationsGraph = new RelationsGraph()
+    private static list: PeopleInfo = new PeopleInfo()
 
-    public getGraph() {
+    public static getGraph() : RelationsGraph {
         return Singleton.graph
     }
 
-    public getList() {
+    public static getList() : PeopleInfo {
         return Singleton.list
     }
 }

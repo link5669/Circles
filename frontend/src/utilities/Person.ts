@@ -1,5 +1,5 @@
 class Person {
-    private name: string
+    public name: string
     private index: number
 
     constructor(name: string, index: number) {

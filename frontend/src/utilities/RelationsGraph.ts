@@ -1,16 +1,10 @@
 //find a reasonable starting size rather than adding new vertices from 0
 
-class RelationsGraph {
-  numVertices: number
-  adjMatrix: number[][]
+import Person from "./Person"
 
-  constructor(numVertices: number) {
-    this.numVertices = numVertices
-    this.adjMatrix = []
-    for (let i = 0; i < numVertices; i++) {
-      this.adjMatrix.push(new Array(numVertices).fill(0))
-    }
-  }
+class RelationsGraph {
+  numVertices: number = 0
+  adjMatrix: number[][] = []
 
   public addPerson() {
     this.numVertices++
@@ -20,19 +14,19 @@ class RelationsGraph {
     }
   }
 
-  addFriend(start: number, end: number) {
+  public addFriend(start: number, end: number) {
     this.adjMatrix[end][start] = 1
   }
 
-  removeFriend(start: number, end: number) {
+  public removeFriend(start: number, end: number) {
     this.adjMatrix[end][start] = 0
   }
 
-  hasFriend(start: number, end: number) {
+  public hasFriend(start: number, end: number) : number {
     return this.adjMatrix[end][start]
   }
 
-  print() {
+  public print() {
     for (let i = 0; i < this.numVertices; i++) {
       let output = ""
       for (let j = 0; j < this.numVertices; j++) {
@@ -42,8 +36,8 @@ class RelationsGraph {
     }
   }
   
-  getAllPeople() {
-    return
+  public getAllPeople() : Person[] {
+    return new Array(this.numVertices).fill(new Person("hello", 1))
   }
 }
 
