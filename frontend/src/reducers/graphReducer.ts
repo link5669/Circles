@@ -1,10 +1,11 @@
 import { ADD_PERSON, ADD_FRIEND } from "../actions/types";
-import RelationsGraph from "../components/RelationsGraph";
 import Person from "../utilities/Person";
+
 const initialState = {
   people: [],
   graph: [],
 };
+
 const graphReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PERSON:
