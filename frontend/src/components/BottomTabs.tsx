@@ -10,7 +10,7 @@ export const BottomTabs = () => {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={RelationsGraph} />
-        <Tab.Screen name="Home2" component={Profile} />
+        <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
     </NavigationContainer>
   );

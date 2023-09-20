@@ -1,4 +1,6 @@
 const ADD_PERSON = "ADD_PERSON";
 const ADD_FRIEND = "ADD_FRIEND";
+const LOG_IN = "LOG_IN"
+const LOG_OUT = "LOG_OUT"
 
-export { ADD_FRIEND, ADD_PERSON };
+export { ADD_FRIEND, ADD_PERSON, LOG_IN, LOG_OUT };
