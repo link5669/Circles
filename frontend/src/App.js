@@ -6,17 +6,13 @@ import Canvas from 'react-native-canvas'
 import Singleton from './utilities/Singleton';
 
 export default function App() {
-  const []
-  useEffect(() => {
-    Singleton.getGraph().addPerson("hello", 1)
-  })
   
   return (
     <RelationsGraph/>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  
   container: {
     flex: 1,
     justifyContent: "center",
