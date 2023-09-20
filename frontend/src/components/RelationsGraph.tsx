@@ -2,34 +2,36 @@ import React, { useEffect } from "react";
 import { SafeAreaView, View, StyleSheet } from "react-native";
 import Canvas from "react-native-canvas";
 import { useDispatch, useSelector } from "react-redux";
-import { addPerson } from "../actions/relationsActions";
+import { addPerson, addFriend } from "../actions/relationsActions";
 
 export default function RelationsGraph() {
-    const dispatch = useDispatch()
-    const people = useSelector((store) => store.people.people)
-  useEffect(()=>{
-    dispatch(addPerson("a"))
-    console.log(people)
-  },[])
+  const dispatch = useDispatch();
+  const people = useSelector((store) => store.people.people);
+  const graph = useSelector((store) => store.people.graph);
+  useEffect(() => {
+    dispatch(addPerson("a"));
+    dispatch(addPerson("b"));
+    console.log(people);
+    console.log(graph);
+  }, []);
 
+  useEffect(() => {
+    console.log(graph)
+  },[graph])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-        <p>asjkd</p>
-      <>
-      {people.map((person, index) => {
-        return <p>{person.name}</p>
-      })}
-        {/* {graph.getAllPeople().map((person, index) => {
-          <>
-            <p key={index}>{person.name}</p>
-            <View style={styles.CircleShape} />
-          </>;
-        })} */}
-      </>
-      {/* <Canvas
-        style={{ width: "100%", height: "100%", backgroundColor: "black" }}
-      /> */}
+        {people.map((person, index) => {
+          return (
+            <>
+              <p>{person.name}</p>
+              <View style={styles.CircleShape} />
+            </>
+          );
+        })}
+        <button onClick={() => {
+            dispatch(addFriend(0,1))
+        }}>click me</button>
     </SafeAreaView>
   );
 }

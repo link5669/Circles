@@ -1,1 +1,4 @@
-export const ADD_PERSON = 'ADD_PERSON'
+const ADD_PERSON = "ADD_PERSON";
+const ADD_FRIEND = "ADD_FRIEND";
+
+export { ADD_FRIEND, ADD_PERSON };

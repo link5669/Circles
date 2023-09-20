@@ -1,7 +1,5 @@
 //find a reasonable starting size rather than adding new vertices from 0
 
-import Person from "./Person"
-
 class RelationsGraph {
   numVertices: number = 0
   adjMatrix: number[][] = []
@@ -34,10 +32,6 @@ class RelationsGraph {
       }
       console.log(output)
     }
-  }
-  
-  public getAllPeople() : Person[] {
-    return new Array(this.numVertices).fill(new Person("hello", 1))
   }
 }
 
