@@ -3,7 +3,6 @@ import React, { useEffect, useRef, Component } from 'react';
 import { StyleSheet, Text, View, Alert, SafeAreaView } from 'react-native';
 import RelationsGraph from './components/RelationsGraph'
 import Canvas from 'react-native-canvas'
-import Singleton from './utilities/Singleton';
 
 export default function App() {
   

@@ -1,8 +1,8 @@
-import { ADD_PERSON } from "./types";
+// import { ADD_PERSON } from "./types";
 
-export const addPerson = (personName) => {
-    return {
-        type: ADD_PERSON,
-        payload: personName
-    }
-}
+// export const addPerson = (personName: string) => {
+//     return {
+//         type: ADD_PERSON,
+//         payload: personName
+//     }
+// }
