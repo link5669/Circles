@@ -3,17 +3,15 @@ import React, { useEffect, useRef, Component } from "react";
 import { StyleSheet, Text, View, Alert, SafeAreaView } from "react-native";
 import RelationsGraph from "./components/RelationsGraph";
 import Canvas from "react-native-canvas";
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./store";
 
 
 export default function App() {
-  useEffect(()=>{
-    console.log(store.getState().people)
-  },[])
+  
   return (
     <Provider store={store}>
-      <p>{store.people}</p>
+      {/* <p>{store.people[0]}</p> */}
       <RelationsGraph />
     </Provider>
   );

@@ -2,16 +2,24 @@ import React, { useEffect } from "react";
 import { SafeAreaView, View, StyleSheet } from "react-native";
 import Canvas from "react-native-canvas";
 import { useDispatch, useSelector } from "react-redux";
-// import store from "../store";
+import { addPerson } from "../actions/relationsActions";
 
 export default function RelationsGraph() {
+    const dispatch = useDispatch()
+    const people = useSelector((store) => store.people.people)
+  useEffect(()=>{
+    dispatch(addPerson("a"))
+    console.log(people)
+  },[])
 
-    // useEffect(() => {
-    //     console.log('Initial state: ', store.getState())
-    // },[])
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
+        <p>asjkd</p>
       <>
+      {people.map((person, index) => {
+        return <p>{person.name}</p>
+      })}
         {/* {graph.getAllPeople().map((person, index) => {
           <>
             <p key={index}>{person.name}</p>
