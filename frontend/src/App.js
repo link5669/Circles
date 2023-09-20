@@ -5,14 +5,13 @@ import RelationsGraph from "./components/RelationsGraph";
 import Canvas from "react-native-canvas";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./store";
-
+import Svg, { Path } from "react-native-svg";
+import { BottomTabs } from "./components/BottomTabs";
 
 export default function App() {
-  
   return (
     <Provider store={store}>
-      {/* <p>{store.people[0]}</p> */}
-      <RelationsGraph />
+      <BottomTabs/>
     </Provider>
   );
 }
