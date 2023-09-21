@@ -13,7 +13,6 @@ class PeopleInfo {
     public getPerson(name: string) {
         this.info.get(name)
     }
-
 }
 
 export default PeopleInfo
