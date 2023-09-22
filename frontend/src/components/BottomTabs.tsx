@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import RelationsGraph from "./RelationsGraph";
 import { NavigationContainer } from "@react-navigation/native";
-import { Profile } from "./Profile";
+import Profile from "./Profile";
 
 const Tab = createBottomTabNavigator();
 
