@@ -17,7 +17,6 @@ const CreateAccount = ({loggedIn, setLoggedIn}) => {
 
   return (
     <View style={styles.container}>
-        <Text>{loggedIn}</Text>
       <Text>Username</Text>
       <TextInput
         label="Username"
@@ -66,7 +65,7 @@ const CreateAccount = ({loggedIn, setLoggedIn}) => {
       />
       <Button
         style={styles.button}
-        onPress={(e) => setLoggedIn("false")}
+        onPress={(e) => setLoggedIn("profile")}
         title="Create Account"
       />
     </View>

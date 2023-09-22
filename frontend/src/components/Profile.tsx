@@ -5,7 +5,8 @@ import { logIn } from "../actions/loginActions";
 import CreateAccount from "./CreateAccount";
 
 const Profile = () => {
-  const [loggedInUser, setLoggedInUser] = useState("false");
+  const [loggedInUserState, setLoggedInUserState] = useState("create");
+  //"create", "profile" or "login"
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,12 +15,28 @@ const Profile = () => {
   const [lastName, setLastName] = useState("");
 
   const handleSubmit = (e) => {
-    setLoggedInUser("true")
+    setLoggedInUserState("profile");
     dispatch(logIn(username, firstName, lastName));
   };
 
-  if (loggedInUser == "true") {
-    return <CreateAccount loggedIn={loggedInUser} setLoggedIn={setLoggedInUser}/>;
+  if (loggedInUserState == "create") {
+    return (
+      <CreateAccount
+        loggedIn={loggedInUserState}
+        setLoggedIn={setLoggedInUserState}
+      />
+    );
+  } else if (loggedInUserState == "profile") {
+    return (
+      <View style={styles.container}>
+        <Text>Username</Text>
+        <Button
+          style={styles.button}
+          onPress={(e) => setLoggedInUserState("login")}
+          title="Log out"
+        />
+      </View>
+    );
   } else {
     return (
       <View style={styles.container}>
@@ -45,13 +62,13 @@ const Profile = () => {
         />
         <Button
           style={styles.button}
-          onPress={(e) => handleSubmit(e)}
+          onPress={(e) => setLoggedInUserState("profile")}
           title="Log in"
         />
         <br />
         <Button
           style={styles.button}
-          onPress={(e) => handleSubmit(e)}
+          onPress={(e) => setLoggedInUserState("create")}
           title="Create an account"
         />
       </View>
